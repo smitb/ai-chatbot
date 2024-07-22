@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    hostname: chatbot
+    image: python:3.11.6
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    depends_on:
+      - cache
+    networks:
+      - internal_network
+
+  cache:
+    image: redis/redis-stack:latest
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    networks:
+      - internal_network
+
+networks:
+  internal_network:
+    driver: bridge

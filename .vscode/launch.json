@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "Python Debugger",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "ai-chatbot.py"
+        }
+    ]
+}
